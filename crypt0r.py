@@ -36,7 +36,9 @@ from cryptography.fernet import Fernet
 
 
 class Crypt0r():
-    """File Cryptor Class with modules"""
+    """
+    File Cryptor Class with modules
+    """
 
     def __init__(self):
 
