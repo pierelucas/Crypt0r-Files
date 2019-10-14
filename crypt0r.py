@@ -73,6 +73,7 @@ class Crypt0r():
         self.key = None
 
     def inp(self):
+
         while True:
             print(self.menu_txt)
             choice = str(input(self.time_hm + Fore.GREEN + " [+] Which option Number » "))
@@ -89,8 +90,7 @@ class Crypt0r():
                         print("[+] Key saved to file")
                         print()
                         if backup_need:
-                            print(
-                                        self.time_hm + Fore.GREEN + " [+] Backup key saved as " + Fore.CYAN + backup_path + Style.RESET_ALL)
+                            print(self.time_hm + Fore.GREEN + " [+] Backup key saved as " + Fore.CYAN + backup_path + Fore.GREEN + " in " + Fore.CYAN + self.path_name(backup_path) + Style.RESET_ALL)
                             continue
             else:
                 print("All Systems Down")
@@ -117,6 +117,11 @@ class Crypt0r():
             print("No Permission")
             print("All Systems Down")
             sys.exit(0)
+
+    def path_name(self, path):
+        pn = os.path.dirname(path)
+        if pn != "": return pn
+        else: return "Aktive Directory"
 
     def rand_str(self, stringlen=6):
 
@@ -196,15 +201,15 @@ class Crypt0r():
                 if self.write_key():
                     print("[+] Key saved to file")
 
-        file, _mode = self.inp()
+        file_path, _mode = self.inp()
 
         if _mode == 'encrypt':
-            if self.enc(file_path=file):
-                print("[+] Success encrypt file")
+            if self.enc(file_path=file_path):
+                print("[+] Success encrypt file " + file_path + " in " + self.path_name(file_path))
                 sys.exit(0)
         elif _mode == 'decrypt':
-            if self.dec(file_path=file):
-                print("[+] Success decrypt file")
+            if self.dec(file_path=file_path):
+                print("[+] Success decrypt file " + file_path + " in " + self.path_name(file_path))
                 sys.exit(0)
 
 
