@@ -119,6 +119,7 @@ class Crypt0r():
             sys.exit(0)
 
     def path_name(self, path):
+
         pn = os.path.dirname(path)
         if pn != "": return pn
         else: return "Aktive Directory"
