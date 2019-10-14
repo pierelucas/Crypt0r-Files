@@ -62,7 +62,7 @@ class Crypt0r():
         """, self.lt)
 
         self.menu_txt = """
-[1] Encrypt     [99] Generate Key // WARNING!
+[1] Encrypt     [99] Generate Key // Crypt0r will Backup your old Key!
 [2] Decrypt     [Else] Exit
         """
 
