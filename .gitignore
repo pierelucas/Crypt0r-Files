@@ -105,3 +105,6 @@ venv.bak/
 
 # pycharm
 /.idea/
+
+# crypt0r
+key.crypt0r
